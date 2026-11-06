@@ -1,0 +1,285 @@
+{
+  "collection": "EasyCook original offline starter collection",
+  "recipes": [
+    {
+      "id": "local-1",
+      "name": "Chicken & Rice Skillet",
+      "category": "Chicken",
+      "area": "Home kitchen",
+      "image": "",
+      "ingredients": [
+        {
+          "name": "chicken breast",
+          "measure": "300 g"
+        },
+        {
+          "name": "rice",
+          "measure": "1 cup"
+        },
+        {
+          "name": "onion",
+          "measure": "1"
+        },
+        {
+          "name": "garlic",
+          "measure": "2 cloves"
+        },
+        {
+          "name": "olive oil",
+          "measure": "1 tbsp"
+        },
+        {
+          "name": "water",
+          "measure": "2 cups"
+        },
+        {
+          "name": "salt",
+          "measure": "to taste"
+        }
+      ],
+      "instructions": "1. Rinse the rice. Chop the onion and garlic, and cut the chicken into bite-sized pieces.\n\n2. Heat the oil in a covered skillet. Cook the onion for 4 minutes, then add the garlic and chicken. Cook until the outside of the chicken is opaque.\n\n3. Stir in rice and water. Bring to a boil, cover and simmer gently until the rice is tender and the chicken reaches 74°C in its thickest part. Add more water if needed.\n\n4. Rest covered for 5 minutes, fluff the rice and season to taste.",
+      "source": "Offline collection"
+    },
+    {
+      "id": "local-2",
+      "name": "Tomato Basil Pasta",
+      "category": "Pasta",
+      "area": "Home kitchen",
+      "image": "",
+      "ingredients": [
+        {
+          "name": "pasta",
+          "measure": "200 g"
+        },
+        {
+          "name": "tomato",
+          "measure": "3"
+        },
+        {
+          "name": "garlic",
+          "measure": "2 cloves"
+        },
+        {
+          "name": "olive oil",
+          "measure": "1 tbsp"
+        },
+        {
+          "name": "basil",
+          "measure": "1 handful"
+        },
+        {
+          "name": "salt",
+          "measure": "to taste"
+        }
+      ],
+      "instructions": "1. Cook the pasta in a large pan of boiling salted water according to its packet instructions. Reserve a small cup of cooking water before draining.\n\n2. Chop tomatoes and garlic. Warm olive oil in a pan, add garlic and cook briefly without browning.\n\n3. Add tomatoes and simmer until soft. Tear in the basil, stir in the cooked pasta and add a splash of the reserved water to loosen the sauce.\n\n4. Taste, season and serve warm.",
+      "source": "Offline collection"
+    },
+    {
+      "id": "local-3",
+      "name": "Vegetable Fried Rice",
+      "category": "Vegetarian",
+      "area": "Home kitchen",
+      "image": "",
+      "ingredients": [
+        {
+          "name": "rice",
+          "measure": "2 cups cooked"
+        },
+        {
+          "name": "egg",
+          "measure": "2"
+        },
+        {
+          "name": "carrot",
+          "measure": "1"
+        },
+        {
+          "name": "peas",
+          "measure": "1/2 cup"
+        },
+        {
+          "name": "soy sauce",
+          "measure": "1 tbsp"
+        },
+        {
+          "name": "vegetable oil",
+          "measure": "1 tbsp"
+        }
+      ],
+      "instructions": "1. Use freshly cooked rice or chilled cooked rice that was cooled promptly and refrigerated. Dice the carrot.\n\n2. Heat oil in a large pan. Scramble the eggs until set, then set them aside.\n\n3. Stir-fry carrot and peas until tender. Add rice and soy sauce and toss until piping hot throughout.\n\n4. Return eggs to the pan, stir well and serve immediately.",
+      "source": "Offline collection"
+    },
+    {
+      "id": "local-4",
+      "name": "Chickpea Spinach Curry",
+      "category": "Vegan",
+      "area": "Home kitchen",
+      "image": "",
+      "ingredients": [
+        {
+          "name": "chickpeas",
+          "measure": "400 g drained"
+        },
+        {
+          "name": "spinach",
+          "measure": "100 g"
+        },
+        {
+          "name": "tomato",
+          "measure": "2"
+        },
+        {
+          "name": "onion",
+          "measure": "1"
+        },
+        {
+          "name": "coconut milk",
+          "measure": "200 ml"
+        },
+        {
+          "name": "curry powder",
+          "measure": "1 tbsp"
+        },
+        {
+          "name": "vegetable oil",
+          "measure": "1 tbsp"
+        }
+      ],
+      "instructions": "1. Chop the onion and tomatoes. Drain and rinse the canned chickpeas.\n\n2. Warm oil in a saucepan. Soften the onion, then stir in curry powder for 30 seconds.\n\n3. Add tomatoes, chickpeas and coconut milk. Simmer for 12–15 minutes, stirring occasionally.\n\n4. Stir in spinach until wilted. Taste and season as desired, then serve hot.",
+      "source": "Offline collection"
+    },
+    {
+      "id": "local-5",
+      "name": "Lemon Garlic Fish",
+      "category": "Seafood",
+      "area": "Home kitchen",
+      "image": "",
+      "ingredients": [
+        {
+          "name": "white fish",
+          "measure": "2 fillets"
+        },
+        {
+          "name": "lemon",
+          "measure": "1"
+        },
+        {
+          "name": "garlic",
+          "measure": "2 cloves"
+        },
+        {
+          "name": "olive oil",
+          "measure": "1 tbsp"
+        },
+        {
+          "name": "parsley",
+          "measure": "1 handful"
+        },
+        {
+          "name": "salt",
+          "measure": "to taste"
+        }
+      ],
+      "instructions": "1. Heat the oven to 200°C. Place fish fillets in a small baking dish.\n\n2. Mix olive oil, minced garlic and the juice of half the lemon. Spoon over the fish and season.\n\n3. Bake until the thickest part reaches 63°C and the flesh flakes easily. Time depends on the thickness of the fillets.\n\n4. Finish with chopped parsley and the remaining lemon.",
+      "source": "Offline collection"
+    },
+    {
+      "id": "local-6",
+      "name": "Banana Oat Pancakes",
+      "category": "Breakfast",
+      "area": "Home kitchen",
+      "image": "",
+      "ingredients": [
+        {
+          "name": "banana",
+          "measure": "1"
+        },
+        {
+          "name": "egg",
+          "measure": "2"
+        },
+        {
+          "name": "oats",
+          "measure": "1/2 cup"
+        },
+        {
+          "name": "milk",
+          "measure": "2 tbsp"
+        },
+        {
+          "name": "butter",
+          "measure": "1 tsp"
+        }
+      ],
+      "instructions": "1. Mash the banana until smooth. Beat in the eggs and milk, then stir in finely ground oats.\n\n2. Let the batter stand for 5 minutes. Warm a non-stick pan over medium-low heat and lightly grease it with butter.\n\n3. Spoon in small rounds of batter. Cook until the underside is golden and the edges begin to set, then turn carefully.\n\n4. Cook the second side until the pancakes are set throughout. Serve warm.",
+      "source": "Offline collection"
+    },
+    {
+      "id": "local-7",
+      "name": "Apple Cinnamon Crumble",
+      "category": "Dessert",
+      "area": "Home kitchen",
+      "image": "",
+      "ingredients": [
+        {
+          "name": "apple",
+          "measure": "2"
+        },
+        {
+          "name": "oats",
+          "measure": "1/2 cup"
+        },
+        {
+          "name": "flour",
+          "measure": "1/4 cup"
+        },
+        {
+          "name": "butter",
+          "measure": "40 g"
+        },
+        {
+          "name": "sugar",
+          "measure": "2 tbsp"
+        },
+        {
+          "name": "cinnamon",
+          "measure": "1/2 tsp"
+        }
+      ],
+      "instructions": "1. Heat the oven to 180°C. Peel and dice the apples, then place them in a small baking dish with half the sugar and the cinnamon.\n\n2. Rub the butter into the flour. Mix in oats and the remaining sugar to make a loose crumble.\n\n3. Scatter the topping over the apples. Bake for 25–35 minutes until golden and the apples are tender.\n\n4. Let stand for a few minutes before serving.",
+      "source": "Offline collection"
+    },
+    {
+      "id": "local-8",
+      "name": "Simple Egg Rice Bowl",
+      "category": "Vegetarian",
+      "area": "Home kitchen",
+      "image": "",
+      "ingredients": [
+        {
+          "name": "egg",
+          "measure": "2"
+        },
+        {
+          "name": "rice",
+          "measure": "1 cup cooked"
+        },
+        {
+          "name": "onion",
+          "measure": "1/2"
+        },
+        {
+          "name": "soy sauce",
+          "measure": "1 tsp"
+        },
+        {
+          "name": "vegetable oil",
+          "measure": "1 tsp"
+        }
+      ],
+      "instructions": "1. Slice the onion thinly. Heat the cooked rice until piping hot throughout.\n\n2. Warm oil in a frying pan and soften the onion. Crack in the eggs and cook until the whites and yolks are set, or to your preferred safe doneness.\n\n3. Place the onion and eggs over the hot rice. Drizzle with soy sauce and serve immediately.",
+      "source": "Offline collection"
+    }
+  ]
+}

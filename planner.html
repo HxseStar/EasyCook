@@ -1,0 +1,350 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  >
+
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https://www.themealdb.com; connect-src 'self' https://www.themealdb.com; object-src 'none'; base-uri 'none'; form-action 'none'"
+  >
+
+  <title>EasyCook · Meal Planner</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script defer src="core.js"></script>
+  <script defer src="storage.js"></script>
+  <script defer src="ui.js"></script>
+  <script defer src="planner.js"></script>
+</head>
+
+<body>
+
+  <aside class="sidebar">
+
+    <a class="brand" href="index.html">
+      <span class="brand-icon">ec</span>
+      EasyCook
+      <span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+
+      <a class="nav-link" href="index.html">
+        <span>⌕</span>
+        Recipe Explorer
+      </a>
+
+      <a
+        class="nav-link active"
+        aria-current="page"
+        href="planner.html"
+      >
+        <span>▦</span>
+        Meal Planner
+      </a>
+
+    </nav>
+
+  </aside>
+
+  <main>
+
+    <section class="page-heading">
+
+      <div>
+        <h1>
+          Your table,<br>
+          <em>thoughtfully planned.</em>
+        </h1>
+      </div>
+
+      <a class="secondary" href="index.html">
+        Explore recipes ↗
+      </a>
+
+    </section>
+
+    <div
+      id="notice"
+      class="notice"
+      role="status"
+      aria-live="polite"
+      hidden
+    ></div>
+
+    <div class="stats">
+
+      <div>
+        <span class="eyebrow">
+          ON THE MENU
+        </span>
+
+        <strong id="stat-meals">0</strong>
+
+        <span>saved meals</span>
+      </div>
+
+      <div>
+        <span class="eyebrow">
+          AROUND THE TABLE
+        </span>
+
+        <strong id="stat-servings">0</strong>
+
+        <span>total planned servings</span>
+      </div>
+
+      <div>
+        <span class="eyebrow">
+          LOOKING AHEAD
+        </span>
+
+        <strong id="stat-days">0</strong>
+
+        <span>days with a plan</span>
+      </div>
+
+    </div>
+
+    <div class="planner-layout">
+
+      <section class="panel plan-editor">
+
+        <span class="eyebrow">
+          MAKE IT A PLAN
+        </span>
+
+        <h2 id="editor-title">Add a meal</h2>
+
+        <form id="meal-form">
+
+          <label>
+            Meal name
+
+            <input
+              id="meal-title"
+              required
+              maxlength="100"
+              placeholder="e.g. Friday vegetable curry"
+            >
+          </label>
+
+          <p id="linked-recipe" class="hint">
+            Add a personal meal, or choose a recipe
+            from the Explorer.
+          </p>
+
+          <div class="form-row">
+
+            <label>
+              Date
+
+              <input
+                id="meal-date"
+                required
+                type="date"
+              >
+            </label>
+
+            <label>
+              Meal
+
+              <select id="meal-slot">
+                <option>Breakfast</option>
+                <option>Lunch</option>
+                <option selected>Dinner</option>
+                <option>Snack</option>
+              </select>
+            </label>
+
+          </div>
+
+          <label>
+            Servings
+
+            <input
+              id="meal-servings"
+              required
+              type="number"
+              min="1"
+              max="100"
+              step="1"
+              value="2"
+            >
+          </label>
+
+          <label>
+            Notes
+            <span class="optional">(optional)</span>
+
+            <textarea
+              id="meal-notes"
+              rows="4"
+              maxlength="500"
+              placeholder="Prep ahead, shopping reminders…"
+            ></textarea>
+          </label>
+
+          <p
+            id="form-error"
+            class="error-text"
+            role="alert"
+          ></p>
+
+          <div class="actions">
+
+            <button
+              id="save-meal"
+              class="primary"
+            >
+              Save meal
+            </button>
+
+            <button
+              id="cancel-edit"
+              type="button"
+              class="secondary"
+              hidden
+            >
+              Cancel edit
+            </button>
+
+          </div>
+
+        </form>
+
+      </section>
+
+      <section>
+
+        <div class="section-heading compact">
+
+          <div>
+            <span class="eyebrow">
+              ALL YOUR GOOD IDEAS
+            </span>
+
+            <h2>On your menu</h2>
+          </div>
+
+        </div>
+
+        <div class="plan-filters">
+
+          <label>
+            Filter by date
+
+            <input
+              id="filter-date"
+              type="date"
+            >
+          </label>
+
+          <label>
+            Meal type
+
+            <select id="filter-slot">
+              <option value="All">All meals</option>
+              <option>Breakfast</option>
+              <option>Lunch</option>
+              <option>Dinner</option>
+              <option>Snack</option>
+            </select>
+          </label>
+
+          <button
+            id="reset-filters"
+            class="text-button"
+          >
+            Reset
+          </button>
+
+        </div>
+
+        <div
+          id="plans"
+          aria-live="polite"
+        ></div>
+
+      </section>
+
+    </div>
+
+    <footer>
+      EasyCook · Good food, thoughtfully planned.
+
+      <span>
+        Saved automatically on this device
+        after each change
+      </span>
+    </footer>
+
+  </main>
+
+  <dialog
+    id="recipe-dialog"
+    aria-labelledby="recipe-title"
+  >
+
+    <div class="dialog-top">
+
+      <span class="eyebrow">
+        YOUR SAVED RECIPE
+      </span>
+
+      <button
+        type="button"
+        class="icon-button"
+        id="close-recipe"
+        aria-label="Close recipe"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div id="recipe-content"></div>
+
+  </dialog>
+
+  <dialog
+    id="delete-dialog"
+    aria-labelledby="delete-title"
+  >
+
+    <h2 id="delete-title">
+      Remove this meal?
+    </h2>
+
+    <p id="delete-description"></p>
+
+    <div class="actions">
+
+      <button
+        id="confirm-delete"
+        class="danger"
+      >
+        Remove meal
+      </button>
+
+      <button
+        id="cancel-delete"
+        class="secondary"
+      >
+        Keep meal
+      </button>
+
+    </div>
+
+  </dialog>
+
+</body>
+</html>

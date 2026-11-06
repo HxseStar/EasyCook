@@ -1,0 +1,455 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  >
+
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https://www.themealdb.com; connect-src 'self' https://www.themealdb.com; object-src 'none'; base-uri 'none'; form-action 'none'"
+  >
+
+  <title>EasyCook · Recipe Explorer</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script defer src="core.js"></script>
+  <script defer src="storage.js"></script>
+  <script defer src="api.js"></script>
+  <script defer src="ui.js"></script>
+  <script defer src="renderer.js"></script>
+</head>
+
+<body>
+
+  <aside class="sidebar">
+
+    <a class="brand" href="index.html">
+      <span class="brand-icon">ec</span>
+      EasyCook
+      <span class="brand-dot">.</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+
+      <a
+        class="nav-link active"
+        aria-current="page"
+        href="index.html"
+      >
+        <span>⌕</span>
+        Recipe Explorer
+      </a>
+
+      <a class="nav-link" href="planner.html">
+        <span>▦</span>
+        Meal Planner
+      </a>
+
+    </nav>
+
+  </aside>
+
+  <main>
+
+    <section class="hero">
+
+      <div>
+
+        <span class="eyebrow">
+          EXPLORE · COOK · ENJOY
+        </span>
+
+        <h1>
+          A little inspiration<br>
+          for your next <em>meal.</em>
+        </h1>
+
+        <a href="#search-form" class="hero-link">
+          Let’s find something delicious
+          <span>↗</span>
+        </a>
+
+      </div>
+
+      <img
+        src="assets/bowl.svg"
+        alt="Illustration of a fresh vegetable bowl"
+        class="hero-art"
+      >
+
+      <span class="hero-stamp">
+        MADE WITH<br>
+        <b>good things</b>
+      </span>
+
+    </section>
+
+    <div
+      id="notice"
+      class="notice"
+      role="status"
+      aria-live="polite"
+      hidden
+    ></div>
+
+    <section
+      class="search-panel"
+      aria-label="Find recipes"
+    >
+
+      <form id="search-form">
+
+        <div class="search-fields">
+
+          <label class="grow">
+            What would you like to cook?
+
+            <input
+              id="search"
+              type="search"
+              maxlength="80"
+              placeholder="Try chicken, pasta, curry…"
+              autocomplete="off"
+            >
+          </label>
+
+          <label>
+            Recipe category
+
+            <select id="category">
+              <option value="All">
+                All categories
+              </option>
+            </select>
+          </label>
+
+          <button
+            class="primary"
+            id="search-button"
+            type="submit"
+          >
+            Search recipes
+            <span>↗</span>
+          </button>
+
+        </div>
+
+      </form>
+
+      <div class="filter-footer">
+
+        <span id="source-label">
+          Connecting to TheMealDB…
+        </span>
+
+        <div>
+
+          <button
+            id="offline"
+            class="text-button"
+            type="button"
+          >
+            Use offline collection
+          </button>
+
+          <button
+            id="surprise"
+            class="text-button"
+            type="button"
+          >
+            ✧ Surprise me
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section>
+
+      <div class="section-heading">
+
+        <div>
+
+          <span class="eyebrow">
+            YOUR NEXT FAVOURITE
+          </span>
+
+          <h2 id="results-title">
+            Explore the recipe collection
+          </h2>
+
+        </div>
+
+        <span
+          id="result-count"
+          class="count"
+        ></span>
+
+      </div>
+
+      <div
+        id="results"
+        class="recipe-grid"
+        aria-live="polite"
+      ></div>
+
+      <button
+        id="load-more"
+        class="secondary load-more"
+        hidden
+      >
+        Show more recipes
+      </button>
+
+    </section>
+
+    <section class="suggestion-panel">
+
+      <div>
+
+        <span class="eyebrow">
+          FROM YOUR PANTRY TO YOUR PLATE
+        </span>
+
+        <h2>
+          A little help deciding?
+        </h2>
+
+        <p>
+          Choose a category above, or tell us what you have.<br>
+          We’ll compare ingredients and find a few ideas.
+        </p>
+
+      </div>
+
+      <form id="suggest-form">
+
+        <label for="ingredients">
+          Available ingredients
+          <span class="optional">
+            (optional with a category)
+          </span>
+        </label>
+
+        <input
+          id="ingredients"
+          maxlength="480"
+          placeholder="e.g. chicken, rice, onion"
+        >
+
+        <p class="hint">
+          Separate up to 8 ingredients with commas.
+          English names work best with TheMealDB.
+        </p>
+
+        <button
+          class="primary"
+          id="suggest-button"
+        >
+          Find my recipe ideas
+          <span>↗</span>
+        </button>
+
+      </form>
+
+    </section>
+
+    <section id="saved-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span class="eyebrow">
+            PICKED FOR YOUR KITCHEN
+          </span>
+
+          <h2>
+            Your recipe recommendations
+          </h2>
+
+        </div>
+
+        <button
+          id="clear-recommendations"
+          class="text-button"
+          hidden
+        >
+          Clear saved ideas
+        </button>
+
+      </div>
+
+      <p
+        id="recommendation-meta"
+        class="hint"
+      >
+        Your latest recommendations will be saved
+        on this device.
+      </p>
+
+      <div
+        id="recommendations"
+        class="recipe-grid"
+      >
+
+        <div class="empty">
+
+          <h3>
+            Your next meal starts with an idea.
+          </h3>
+
+          <p>
+            Choose a category or add ingredients
+            to get started.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <footer>
+      EasyCook · Good food, thoughtfully planned.
+
+      <span>
+        Recipes provided by TheMealDB ·
+        Offline collection included
+      </span>
+    </footer>
+
+  </main>
+
+  <dialog
+    id="recipe-dialog"
+    aria-labelledby="recipe-title"
+  >
+
+    <div class="dialog-top">
+
+      <span class="eyebrow">
+        THE RECIPE, YOUR WAY
+      </span>
+
+      <button
+        type="button"
+        class="icon-button"
+        id="close-recipe"
+        aria-label="Close recipe"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div id="recipe-content"></div>
+
+  </dialog>
+
+  <dialog
+    id="plan-dialog"
+    aria-labelledby="plan-dialog-title"
+  >
+
+    <div class="dialog-top">
+
+      <h2 id="plan-dialog-title">
+        Add to your meal plan
+      </h2>
+
+      <button
+        class="icon-button"
+        id="close-plan"
+        aria-label="Close meal plan"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <form id="quick-plan-form">
+
+      <p
+        id="quick-recipe-name"
+        class="selected-recipe"
+      ></p>
+
+      <div class="form-row">
+
+        <label>
+          Date
+
+          <input
+            id="quick-date"
+            type="date"
+            required
+          >
+        </label>
+
+        <label>
+          Meal
+
+          <select id="quick-slot">
+            <option>Breakfast</option>
+            <option>Lunch</option>
+            <option selected>Dinner</option>
+            <option>Snack</option>
+          </select>
+        </label>
+
+      </div>
+
+      <label>
+        Servings
+
+        <input
+          id="quick-servings"
+          type="number"
+          min="1"
+          max="100"
+          step="1"
+          value="2"
+          required
+        >
+      </label>
+
+      <label>
+        Notes
+        <span class="optional">
+          (optional)
+        </span>
+
+        <textarea
+          id="quick-notes"
+          maxlength="500"
+          rows="3"
+          placeholder="Anything to remember?"
+        ></textarea>
+      </label>
+
+      <p
+        id="quick-error"
+        class="error-text"
+        role="alert"
+      ></p>
+
+      <button class="primary">
+        Save meal plan
+      </button>
+
+    </form>
+
+  </dialog>
+
+</body>
+</html>

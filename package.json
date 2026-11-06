@@ -1,0 +1,12 @@
+{
+  "name": "easycook-recipe-dictionary",
+  "version": "1.0.0",
+  "description": "EasyCook recipe dictionary and persistent meal planner",
+  "private": true,
+  "main": "main.js",
+  "scripts": { "start": "electron .", "test": "node --test tests/core.test.js" },
+  "devDependencies": { "electron": "45.0.0" },
+  "engines": { "node": ">=22" }
+}
+
+
